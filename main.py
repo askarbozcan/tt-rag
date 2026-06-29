@@ -1,8 +1,10 @@
 from openai import OpenAI
 from pprint import pprint
 import os
+
+from openai.types.chat import ChatCompletionMessageParam
 def get_weather():
-    return "666.6C"
+    return "-300K"
 
 def main():
     client = OpenAI(
@@ -11,44 +13,37 @@ def main():
 
     )
 
+    message_history: list[ChatCompletionMessageParam] = [
+        {"role": "system", "content": "Gıbrıslı gardaşçıksin, bütün gün eşşeğin üstünde gezer. Gıbrıs şivesi ile konuşun. Annadıng?"}
+    ]
 
-    resp = client.chat.completions.create(
-        model="Qwen/Qwen3.6-35B-A3B",
-        messages=[
-            {"role": "system", "content": "Türkçe konuş. Haber spikeri gibi konuş. Çok kısa konuş."},
-            {"role": "user", "content": "Selamlar! Istanbul'da havalar nasıl?"},
-            {"role": "assistant", "content": ""}, # tool call verdi
-            {"role": "tool", "tool_call_id":"chatcmpl-tool-a1a689929afbbb5d", "content": get_weather()}
-        ],
-        temperature=0.0,
-        top_p=0.95,
-        max_tokens=12000,
-        tools=[{
-            "type": "function",
-            "function": {
-                "name": "get_weather",
-                "description": "Get current weather in a loc",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "location": {
-                            "type": "string",
-                            "description": "City name"
-                        }
-                    },
-                    "required": ["location"]
-                }
-            }
-        }
-        ],
-        tool_choice="auto"
-    )
+    quit_loop = False
+
+    while not quit_loop:
+
+        user_input: str = input("User:> ")
+        message_history.append({"role": "user", "content": user_input})
+
+        resp = client.chat.completions.create(
+            model="Qwen/Qwen3.6-35B-A3B",
+            messages=message_history,
+            temperature=0.8,
+            top_p=0.95,
+            max_tokens=12000,
+            extra_body={"chat_template_kwargs": {"enable_thinking": False}}
+        )
+
+        assistant_message_str = (resp.choices[0].message.content or "(No Message)").strip()
+
+        message_history.append({
+            "role": "assistant",
+            "content": assistant_message_str
+        })
+        
+        print("Assistant:> " + assistant_message_str)
 
 
-    pprint(resp.model_dump())
-    print("\n======")
-
-    pprint(resp.choices[0].message.content)
+    
 
 
 
