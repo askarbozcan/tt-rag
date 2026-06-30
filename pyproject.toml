@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "chonkie>=1.6.8",
     "dotenv>=0.9.9",
     "numpy>=2.5.0",
     "openai>=2.44.0",

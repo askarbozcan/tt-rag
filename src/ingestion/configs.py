@@ -13,7 +13,6 @@ class ExtractionConfig(BaseModel):
     embedding_provider: str
     embedding_model: str
     embedding_size: int
-    normalize_embeddings: bool
 
     chonkie_ver: str
     chunking_method: Literal["recursive", "semantic"]
