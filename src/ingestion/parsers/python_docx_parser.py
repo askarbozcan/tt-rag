@@ -79,9 +79,9 @@ def _iter_events(doc: Document) -> Iterator[tuple[str, str]]:
     """
     for child in doc.element.body.iterchildren():  # type: ignore
         if child.tag == _W_P:  # type: ignore
-            yield from _paragraph_events(child)
+            yield from _paragraph_events(child) # type: ignore
         elif child.tag == _W_TBL:  # type: ignore
-            table = Table(child, doc)
+            table = Table(child, doc) # type: ignore
             for row in table.rows:
                 yield "text", "\t".join(cell.text for cell in row.cells)
 
