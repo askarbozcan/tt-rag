@@ -88,8 +88,9 @@ def main():
             print("RELEVANT CHUNK INDEX IS", max_i)
             relevant_chunk = corpus[max_i]
 
-            prompt= f"""SOURCES: Most relevant documents: {"\n".join(corpus)}\n User query: {user_input}"""
+            prompt= f"""SOURCES: Most relevant documents: {relevant_chunk}\n User query: {user_input}"""
             message_history.append({"role": "user", "content": prompt})
+            is_first_loop = False
         else:
             message_history.append({"role": "user", "content": user_input})
         
