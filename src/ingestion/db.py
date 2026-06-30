@@ -51,11 +51,33 @@ class IngestionDB:
 
     # -- schema --------------------------------------------------------------
 
+    # Tables owned by this schema, ordered so that DROP respects FK dependencies.
+    _TABLES = ("chunks", "documents", "extraction_configs")
+
     def init_schema(self, schema_path: Path = _SCHEMA_PATH) -> None:
         """Create the extension, tables and indices from ``schema.sql``."""
         sql = schema_path.read_text()
         with self._conn, self._conn.cursor() as cur:
             cur.execute(sql)
+
+    def tables_exist(self) -> bool:
+        """True if any of the schema's tables already exist in the database."""
+        with self._conn, self._conn.cursor() as cur:
+            cur.execute(
+                "SELECT EXISTS (SELECT 1 FROM information_schema.tables "
+                "WHERE table_schema = 'public' AND table_name = ANY(%s))",
+                (list(self._TABLES),),
+            )
+            return bool(cur.fetchone()[0])
+
+    def drop_schema(self) -> None:
+        """Drop the schema's tables (and dependent objects) if they exist."""
+        with self._conn, self._conn.cursor() as cur:
+            cur.execute(
+                "DROP TABLE IF EXISTS "
+                + ", ".join(self._TABLES)
+                + " CASCADE"
+            )
 
     # -- writes --------------------------------------------------------------
 

@@ -1,8 +1,12 @@
 import hashlib
 import json
+from importlib.metadata import version
 from typing import Any, Literal
 
 from pydantic import BaseModel
+
+from .parsers._base import BaseParser
+
 
 class ExtractionConfig(BaseModel):
     """
@@ -22,6 +26,34 @@ class ExtractionConfig(BaseModel):
     parser: str
     parser_ver: str
     parser_params: dict[str, int | str] = {}
+
+    @staticmethod
+    def new(
+        parser: BaseParser,
+        embedding_provider: str,
+        embedding_model: str,
+        embedding_size: int,
+        chunking_method: Literal["recursive", "semantic"],
+        chunking_method_params: dict[str, int | str],
+        tokenizer: Literal["character", "gpt2"],
+    ) -> "ExtractionConfig":
+        """Build a config for a given parser.
+
+        The parser name/version vary by file type (PDF vs DOCX), so the config —
+        and therefore its idempotency fingerprint — is built per file. The
+        chonkie version is read from the installed package.
+        """
+        return ExtractionConfig(
+            embedding_provider=embedding_provider,
+            embedding_model=embedding_model,
+            embedding_size=embedding_size,
+            chonkie_ver=version("chonkie"),
+            chunking_method=chunking_method,
+            chunking_method_params=chunking_method_params,
+            tokenizer=tokenizer,
+            parser=type(parser).__name__,
+            parser_ver=getattr(parser, "version", "unknown"),
+        )
 
     def canonical_dict(self) -> dict[str, Any]:
         """Config as a plain dict in a stable, canonical form."""

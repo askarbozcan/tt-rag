@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    container_name: tt-rag-postgres
+    environment:
+      POSTGRES_USER: ttrag
+      POSTGRES_PASSWORD: ttrag
+      POSTGRES_DB: ttrag
+    ports:
+      - "5444:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # Applied once, on first boot of an empty data volume.
+      - ./src/ingestion/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+
+volumes:
+  pgdata:
