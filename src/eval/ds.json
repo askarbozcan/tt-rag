@@ -1,0 +1,21 @@
+[
+{"user_input": "Deniz Gürsoy'un kitabına göre 'gastronomi' kelimesi hangi dilden ve hangi iki sözcükten türetilmiştir?", "reference": "Gastronomi kelimesi Yunanca'dan türetilmiştir: 'gaster' (mide) ve 'nomos' (kanun) sözcüklerinin birleşiminden oluşur ve 'mide kanunu' anlamına gelir. Bu açıklamayı Athenaeus, Banquet of the Learned adlı eserinde yapmıştır."},
+
+{"user_input": "Felipe Fernandez-Armesto'ya göre insanın yemekle ilişkisinin tarihsel evrimini oluşturan sekiz devrim nelerdir?", "reference": "Sekiz devrim şunlardır: 1) Pişirmenin icadı, 2) Yemek yemenin sosyal/ritüel bir olguya dönüşmesi, 3) Hayvanların evcilleştirilmesi, 4) Tarımın başlaması, 5) Yemeğin sosyal farklılaşma aracı olması, 6) Uzun mesafeli gıda taşımacılığıyla oluşan kültürel etkileşim, 7) Amerika'nın keşfiyle başlayan ekolojik devrim, 8) 19. yüzyılda başlayan gıdanın endüstriyel ürün hâline gelmesi süreci."},
+
+{"user_input": "Antik Roma'da General Lucullus'un adı bugün hangi kavramlarla anılmaktadır ve bu neden kaynaklanmaktadır?", "reference": "General Lucullus'un hazırlattığı sofralar o kadar görkemliymiş ki, İngilizce'de 'Lucullan' (lüks anlamında) ve İtalyanca'da 'Lucculliana' sözcükleri bu tür görkemli sofraları tanımlamak için kullanılmaktadır. Ayrıca eti yumuşatma özelliği olan bir sos da yine bu generalin adıyla anılmaktadır."},
+
+{"user_input": "Ortaçağ Avrupası'nda aşçıbaşı ve çırakların şapka renkleri arasındaki fark neydi ve bunun anlamı neydi?", "reference": "Ortaçağ'da uzun şapka aşçıbaşı tarafından, kısa yuvarlak şapka ise çıraklar tarafından kullanılırdı. Daha sonra siyah başlık kullanıma girdi, ancak bu şapkayı yalnızca meslektaşları tarafından 'usta aşçıbaşı' unvanı verilen aşçılar takabiliyordu; çünkü siyah, Ortaçağ'da asaleti simgeleyen renkti."},
+
+{"user_input": "Nevin Halıcı'nın Türk Mutfağı kitabına göre Klasik Türk Mutfağı'nın kaynağı olan iki temel eser hangileridir ve yazarları kimdir?", "reference": "Klasik Türk Mutfağı'na kılavuzluk eden iki temel eser, Hadiye Fahriye tarafından hazırlanan 'Yemek Kitabı' (1340/1924) ve 'Tatlıcı Başı' (1342/1926) adlı eski yazıyla basılmış kitaplardır."},
+
+{"user_input": "Türk Mutfağı'nda kullanılan çorba terbiyesi çeşitleri nelerdir?", "reference": "Türk Mutfağı'nda üç türlü çorba terbiyesi kullanılır: 1) Limon, un, yumurta terbiyesi, 2) Limon, yumurta terbiyesi (unlu çorbalara kullanılır), 3) Sirke ve sarımsaklı terbiye (cam kâsede sirke ve dövülmüş sarımsakla hazırlanır)."},
+
+{"user_input": "Türk Mutfağı'nda etler hangi dört ana grupta sınıflandırılır?", "reference": "Etler dört bölümde sınıflandırılır: Kasap hayvanları (sığır, dana, koyun, kuzu, oğlak, keçi), Kümes hayvanları (tavuk, hindi, kaz, ördek, piliç vb.), Av hayvanları (bıldırcın, keklik, çulluk, sülün vb.) ve Deniz ürünleri (beyaz ve siyah etli balıklar vb.)."},
+
+{"user_input": "Yiyelim İçelim, Tarihini Bilelim kitabına göre Antik Yunan'da tanrıların yediği yemeğin adı nedir ve nasıl tarif edilir?", "reference": "Antik Yunan'da tanrıların yediği yemeğin adı Ambrosia'dır. Bu yemeğin tam olarak nelerden oluştuğu bilinmemekle birlikte, yanında mutlaka nektarla sunulduğu, ne tam katı ne de sıvı olduğu ve menemen ya da omlet gibi bir şey olabileceği belirtilir."},
+
+{"user_input": "Deniz Gürsoy'un kitabına göre dünyadaki en eski yemek tarifleri nerede ve ne zaman bulunmuştur?", "reference": "Dünyadaki en eski yemek tarifleri, Yale Üniversitesi'nde çözülen, Mezopotamya'da bulunmuş MÖ 1700 yıllarına tarihlenen Sümer ve Akad tabletlerinde yer almaktadır. Bu tabletlerde dokuz tablet dolusu yemek tarifi bulunmuştur; tariflerden biri, eti tuzlu suda haşlarken içine pırasa, soğan ve kereviz eklenerek yapılan et suyudur."},
+
+{"user_input": "Türk Mutfağı kitabına göre pilav pişirme yöntemleri nelerdir?", "reference": "Pilav pişirme yöntemleri üçtür: 1) Salma yöntemi (pilavlık malzemenin kaynamakta olan yağlı ve tuzlu suya ilave edilmesi), 2) Süzme yöntemi (pilavlık malzemenin tuzlu suda haşlanıp süzülerek üzerine kızdırılmış yağ ilave edilmesi), 3) Kavurma yöntemi (pilavlık malzemenin tencerede yağla kavrularak üzerine kaynar su ve tuz ilave edilmesi)."}
+]
